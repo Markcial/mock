@@ -18,14 +18,9 @@ function mock
     set -l result_var "$prefix"_result
     set -l body_var "$prefix"_body
 
+    set -l args $argv
     set -l result $$result_var
     set -l body $$body_var
-    set -l body (echo "$$body_var" | awk -v args="$argv" '
-        {
-            gsub(/\$argv/, args, $0)
-            print($0)
-        }
-    ')
     eval $body
     functions -e $name
     return $result
