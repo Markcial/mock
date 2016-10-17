@@ -67,3 +67,7 @@ test "$TESTNAME It should mock -n times"
     end
   )
 end
+
+test "$TESTNAME It sould accept functions with dashes"
+  "ok" = (mock ssh-add 0 "echo ok"; and ssh-add)
+end
