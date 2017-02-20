@@ -5,7 +5,7 @@ function mock -a _mock -a result -a code -d "Mock library for fish shell testing
     echo The function '"'$_mock'"' is reserved and therefore cannot be mocked.
     return 1
   else if not contains $_mock $_mocks
-    function -V _mock -V result -V code $_mock
+    function $_mock -V _mock -V result -V code 
       set -l args $argv
 
       # add result variable
